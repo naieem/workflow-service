@@ -21,55 +21,27 @@ module.exports = WFconfig;
 /*
 dummy of schema
 {
-	"name":"flappy_game",
+	"name":"new_game",
 	"stepConfig":[
 		{
 			"order":"1",
 			"stepTitle":"Step one",
 			"components":[
 				{
-					"name":"input",
-					"LabelTitle":"Owner Name",
-					"defaultValue":"Naiee Mahmud Supto",
-					"width":"100"
+					"type":"text",
+					"model":"website",
+					"LabelTitle":"Website",
+					"defaultValue":"Naiee Mahmud",
+					"width":"100",
+					"placholder":"www.placeholder.com"
 				},
 				{
-					"name":"text",
-					"LabelTitle":"Email",
-					"defaultValue":"Naieem.mahmud@selise.ch",
-					"width":"100"
-				},
-				{
-					"name":"list_with_image",
-					"options":[
-						{
-							"name":"car1",
-							"value":"car1",
-							"imageurl":"http://something.com"
-						},
-						{
-							"name":"car2",
-							"value":"car2",
-							"imageurl":"http://something1.com"
-						}
-					],
-					"defaultValue":"car2",
-					"width":"50"
-				},
-				{
-					"name":"game_sound",
-					"options":[
-						{
-							"name":"car1",
-							"value":"car1",
-							"soundurl":"http://something.com"
-						},
-						{
-							"name":"car2",
-							"value":"car2",
-							"soundUrl":"http://something1.com"
-						}
-					]
+					"type":"textarea",
+					"model":"commet",
+					"LabelTitle":"Comment",
+					"defaultValue":"Naieem.mahmud",
+					"width":"100",
+					"placholder":"Comment"
 				}
 			]
 		},{
@@ -77,27 +49,28 @@ dummy of schema
 			"stepTitle":"Step two",
 			"components":[
 				{
-					"name":"input",
-					"LabelTitle":"game url",
-					"defaultValue":"http://something.com",
-					"width":"100"
+					"type":"text",
+					"model":"telephone",
+					"LabelTitle":"Telephone",
+					"defaultValue":"01915819260",
+					"width":"100",
+					"placholder":"enter telephone number"
 				},
 				{
-					"name":"list_with_image",
-					"options":[
-						{
-							"name":"car1",
-							"value":"car1",
-							"imageurl":"http://something.com"
-						},
-						{
-							"name":"car2",
-							"value":"car2",
-							"imageurl":"http://something1.com"
-						}
-					],
-					"defaultValue":"car2",
-					"width":"50"
+					"type":"text",
+					"model":"street",
+					"LabelTitle":"Street",
+					"defaultValue":"23/4",
+					"width":"100",
+					"placholder":"enter street"
+				},
+				{
+					"type":"textarea",
+					"model":"address",
+					"LabelTitle":"Address",
+					"defaultValue":"midas center dhakesh",
+					"width":"100",
+					"placholder":"enter address"
 				}
 			]
 		}
