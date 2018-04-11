@@ -4,25 +4,11 @@ var Schema = mongoose.Schema;
 
 // create a schema
 var workflowConfig = new Schema({
-  name: String,
-//   information: Schema.Types.Mixed,
-  stepConfig:  [
-     {
-        order :String,
-        stepTitle:String,
-        components:[
-            {
-                name:String,
-                LabelTitle:String,
-                defaultValue:String,
-                width:String,
-                options:[Schema.Types.Mixed]
-            }
-        ]
-    }
-  ],
-  created_at: { type: Date, default: Date.now },
-  updated_at: { type: Date, default: Date.now }
+    name: String,
+    //   information: Schema.Types.Mixed,
+    stepConfig: [Schema.Types.Mixed],
+    created_at: { type: Date, default: Date.now },
+    updated_at: { type: Date, default: Date.now }
 });
 
 // the schema is useless so far
