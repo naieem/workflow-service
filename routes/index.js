@@ -1,5 +1,7 @@
 var express = require('express');
+// workflow configuration
 var workflowConfig = require('../models/workflowConfig.model');
+var workflowinstance = require('../models/workflowinstance.model');
 var router = express.Router();
 
 /* GET home page. */
@@ -73,5 +75,42 @@ router.post('/getById', function(req, res, next) {
         }
     });
 });
+
+// ---------------------------------------------------
+// getting workflowconfig by id
+// ---------------------------------------------------
+router.post('/saveSettings', function(req, res, next) {
+    debugger;
+    workflowConfig.findByIdAndUpdate(req.body.information._id, req.body.information, function(err, response) {
+        debugger;
+        if (!err) {
+            insertNewInstance(req.body.instanceinformation, res);
+        } else {
+            res.json(500, {
+                status: 500,
+                data: err
+            });
+        }
+    });
+});
+
+function insertNewInstance(newinstanceInfo, res) {
+    var WFconfig = new workflowinstance({
+        configuration: newinstanceInfo
+    });
+    return WFconfig.save(function(err, response) {
+        if (!err) {
+            res.json(200, {
+                status: 200,
+                data: response
+            });
+        } else {
+            res.json(200, {
+                status: 500,
+                data: err
+            });
+        }
+    });
+}
 
 module.exports = router;
