@@ -99,28 +99,41 @@ router.post('/saveSettings', function(req, res, next) {
                 data: err
             });
         } else {
-            // res.json(200, {
-            //     status: true,
-            //     data: {
-            //         itemId: response._id,
-            //         name: response.name
-            //     }
-            // });
             insertingNewAdvertisement(req.body.instanceinformation, response._id ,res);
         }
 
     });
-    // workflowConfig.findByIdAndUpdate(req.body.information._id, req.body.information, function(err, response) {
-    //     
-    //     if (!err) {
-    //         upsertNewInstance(req.body.instanceinformation, res);
-    //     } else {
-    //         res.json(500, {
-    //             status: 500,
-    //             data: err
-    //         });
-    //     }
-    // });
+});
+
+
+// -----------------------------------------------------------------------------------
+// updating instance of WFCONFIG and updating game configuration
+// -----------------------------------------------------------------------------------
+router.post('/updateSettings', function(req, res, next) {
+    debugger;
+    workflowinstance.findByIdAndUpdate(req.body.information._id,req.body.information,function(err, response) {
+        if (err) {
+            res.json(500, {
+                status: false,
+                data: err
+            });
+        } else {
+            advertisement.findByIdAndUpdate(req.body.instanceinformation._id, req.body.instanceinformation, function(error, resp) {    
+                    if (!err) {
+                        res.json(500, {
+                            status: 200,
+                            data: resp
+                        });
+                    } else {
+                        res.json(500, {
+                            status: 500,
+                            data: error
+                        });
+                    }
+                });
+        }
+
+    });
 });
 
 /**
