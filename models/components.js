@@ -12,9 +12,9 @@ var COMPONENTS = new Schema({
     defaultValue: Schema.Types.Mixed,
     DefaultCheckboxValue: Boolean, // needed for checkbox fields
     optionsList: [{
-        id: String,
         imgLink: String,
-        labelText: String
+        labelText: String,
+        value: Schema.Types.Mixed,
     }],
     placholder: String
 });

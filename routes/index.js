@@ -24,7 +24,6 @@ router.post('/save', function(req, res, next) {
         short_description: req.body.short_description,
         profile_img: req.body.profile_img
     });
-    debugger;
     WFconfig.save(function(err, response) {
         if (err) {
             res.json(500, {
@@ -135,7 +134,6 @@ function insertingNewInstance(newinstanceInfo, res) {
 // updating instance of WFCONFIG and updating game configuration
 // -----------------------------------------------------------------------------------
 router.post('/updateSettings', function(req, res, next) {
-
     workflowinstance.findByIdAndUpdate(req.body.information._id, req.body.information, function(err, response) {
         if (err) {
             res.json(500, {
