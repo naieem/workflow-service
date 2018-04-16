@@ -1,14 +1,19 @@
 var mongoose = require('mongoose');
-
+var components = require('./components');
 var Schema = mongoose.Schema;
 
-// create a schema
+// create workflow schema
 var workflowConfig = new Schema({
-	name: String,
-	stepConfig: [Schema.Types.Mixed],
-	short_description: String,
-	profile_img: String,
-	activeStep: {type: Number, default: 1},
+    name: String,
+    stepConfig: [{
+        order: String,
+        stepTitle: String,
+        components: [components]
+    }],
+    short_description: String,
+    profile_img: String,
+    advertisementId: { type: Schema.Types.ObjectId, ref: 'advertisement' },
+    activeStep: { type: Number, default: 1 },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
 });

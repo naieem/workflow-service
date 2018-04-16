@@ -1,49 +1,18 @@
 var mongoose = require('mongoose');
-
+var components = require('./components');
 var Schema = mongoose.Schema;
-
-// create a schema
-// var workflowConfig = new Schema({
-// 	name: String,
-// 	stepConfig: [Schema.Types.Mixed],
-// 	short_description: String,
-// 	profile_img: String,
-// 	activeStep: {type: Number, default: 1},
-//     created_at: { type: Date, default: Date.now },
-//     updated_at: { type: Date, default: Date.now }
-// });
-
-
+// create workflow schema
 var workflowConfig = new Schema({
-	name: String,
-	stepConfig: [
-		{
-			order:String,
-			stepTitle:String,
-			components:[
-				{
-					c_type: String, // ex:input,textarea,list_with_image_datepicker,range,radio,checkbox
-					model:String, // the one which i will use in the input model binding and it will be saved as new games configuration
-					LabelTitle:String,
-					width:String, // ex:half,full,one-third,one-fourth
-					DefaultImage: String,
-					defaultValue: String,
-					DefaultCheckboxValue: Boolean, // needed for checkbox fields
-					optionsList:[
-						{
-							id:String,
-							imgLink:String,
-							labelText: String
-						}
-					],
-					placholder: String
-				}
-			]
-		}
-	],
-	short_description: String,
-	profile_img: String,
-	activeStep: {type: Number, default: 1},
+    name: String,
+    stepConfig: [{
+        order: String,
+        stepTitle: String,
+        components: [components]
+    }],
+    short_description: String,
+    profile_img: String,
+    advertisementId: { type: Schema.Types.ObjectId, ref: 'advertisement' },
+    activeStep: { type: Number, default: 1 },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
 });

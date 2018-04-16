@@ -5,7 +5,6 @@ var Schema = mongoose.Schema;
 // create a schema
 var advertisement_settings = new Schema({
     configuration: Schema.Types.Mixed,
-    instanceId: String,
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
 });
