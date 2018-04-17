@@ -16,6 +16,9 @@ var COMPONENTS = new Schema({
         labelText: String,
         value: Schema.Types.Mixed,
     }],
+    minValue: Number,
+    maxValue: Number,
+    stepDiff: Number,
     placholder: String
 });
 
